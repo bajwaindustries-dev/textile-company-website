@@ -1,0 +1,73 @@
+@import "tailwindcss";
+
+/* ============================================================================
+   BAJWA INDUSTRIES — EDITORIAL DESIGN SYSTEM
+   Canvas (cream) / Onyx (charcoal) / Mustard (gold) high-fashion palette.
+   Typography: Playfair Display (serif — nav/section titles),
+   Bebas Neue (display — hero impact), Inter (body copy).
+   ============================================================================ */
+@theme {
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-serif: "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-display: "Bebas Neue", "Oswald", sans-serif;
+
+  /* Core brand palette */
+  --color-canvas: #fafafa;
+  --color-canvas-soft: #f2ede2;
+  --color-onyx: #0d0d0d;
+  --color-onyx-soft: #1a1a1a;
+  --color-mustard: #eab308;
+  --color-mustard-deep: #b45309;
+  --color-mustard-light: #fde68a;
+
+  /* Radius — crisp editorial corners, not corporate-soft */
+  --radius-sm: 2px;
+  --radius-md: 4px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  background-color: var(--color-canvas);
+  color: var(--color-onyx);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  letter-spacing: -0.01em;
+}
+
+::selection {
+  background-color: rgba(234, 179, 8, 0.35);
+  color: var(--color-onyx);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-canvas);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(13, 13, 13, 0.2);
+  border: 2px solid var(--color-canvas);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-mustard);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(13, 13, 13, 0.2) var(--color-canvas);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-mustard);
+  outline-offset: 2px;
+}
