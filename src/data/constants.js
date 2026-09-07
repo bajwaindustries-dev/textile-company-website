@@ -35,10 +35,9 @@ export const STEPS = [
     title: "Yarn & Knitting",
     desc: "State-of-the-art circular and flat knitting machines producing premium quality fabric bases at scale.",
     details: [
-      "Circular knitting machines (single & double jersey)",
+      "Circular knitting machines",
       "Flat knitting for collars & cuffs",
       "In-house yarn quality testing lab",
-      "Capacity: 50+ tons of fabric per day",
     ],
   },
   {
@@ -48,9 +47,9 @@ export const STEPS = [
     desc: "Eco-friendly wet processing with Pantone-precision custom color matching for every order.",
     details: [
       "Low-water, eco-friendly dyeing processes",
-      "Pantone-precision custom color matching",
-      "Enzyme & softener finishing treatments",
-      "On-site effluent treatment plant (ETP)",
+      "Pantone-precision custom color matching with data-color equipment",
+      "Bio-polishing with Enzyme for clean fabric surface",
+      "22 Imported FONG's machinery units",
     ],
   },
   {
