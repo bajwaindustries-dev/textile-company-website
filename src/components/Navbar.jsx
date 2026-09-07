@@ -57,19 +57,12 @@ export default function Navbar() {
           </nav>
 
           {/* Right Call to Action */}
-          {/*
-            CTA: retained as a solid button (primary action gets the reserved
-            mustard accent), but:
-            - `bg-mustard` + `hover:bg-mustard-deep`
-            - `rounded-md` (6px) — uniform architectural radius.
-            - Dropped shadow-sm — flat surface, no faux depth.
-          */}
           <Link
             to="/contact"
-            className="inline-flex items-center gap-2 px-5 py-2.5 bg-mustard hover:bg-mustard-deep text-onyx hover:text-canvas text-xs font-semibold rounded-md transition-colors uppercase tracking-[0.14em]"
+            className="inline-flex items-center gap-2 px-5 py-2.5 bg-sky-200 hover:bg-sky-300 text-onyx text-xs font-semibold rounded-md transition-colors uppercase tracking-[0.14em]"
           >
             <span>Get In Touch</span>
-            <ArrowRight className="w-4 h-4" />
+            <ArrowRight className="w-4 h-4 text-onyx" />
           </Link>
         </div>
       </header>
@@ -119,9 +112,9 @@ export default function Navbar() {
           */}
           <Link
             to="/contact"
-            className="inline-flex items-center gap-1.5 px-3 py-2 bg-mustard hover:bg-mustard-deep text-onyx hover:text-canvas text-xs font-semibold rounded-full transition-colors"
+            className="inline-flex items-center gap-1.5 px-3 py-2 bg-sky-200 hover:bg-sky-300 text-xs font-semibold rounded-full transition-colors"
           >
-            <MessageSquare className="w-3.5 h-3.5" />
+            <MessageSquare className="w-3.5 h-3.5 text-onyx" />
           </Link>
         </div>
 
