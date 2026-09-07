@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 export default function Counter({ value, suffix = "", duration = 1500, className = "" }) {
   const [count, setCount] = useState(0);

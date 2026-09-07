@@ -1,7 +1,6 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { CheckCircle2, ArrowUpRight } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
 import SectionHeading from "./ui/SectionHeading";
 import { STEPS } from "../data/constants";
 
@@ -75,19 +74,6 @@ export default function Capabilities() {
                       </li>
                     ))}
                   </ul>
-                </div>
-
-                <div className="pt-3 border-t border-white/10 flex items-center justify-between">
-                  <span className="text-[11px] text-canvas/50 font-medium uppercase tracking-wider">
-                    Detailed View
-                  </span>
-                  <Link
-                    to={`/capabilities/${s.slug}`}
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-mustard hover:text-white uppercase tracking-[0.1em] transition-colors group/link"
-                  >
-                    <span>View Facility</span>
-                    <ArrowUpRight className="w-3.5 h-3.5 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />
-                  </Link>
                 </div>
               </div>
             );
@@ -213,20 +199,6 @@ export default function Capabilities() {
                       </li>
                     ))}
                   </ul>
-                </div>
-
-                {/* Desktop Action Link */}
-                <div className="pt-4 border-t border-white/15 flex items-center justify-between">
-                  <span className="text-[11px] text-canvas/60 font-medium uppercase tracking-wider">
-                    Full Facility Specs
-                  </span>
-                  <Link
-                    to={`/capabilities/${STEPS[active]?.slug}`}
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-mustard hover:text-white uppercase tracking-[0.1em] transition-colors group/link"
-                  >
-                    <span>View Facility</span>
-                    <ArrowUpRight className="w-3.5 h-3.5 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />
-                  </Link>
                 </div>
               </motion.div>
             </AnimatePresence>

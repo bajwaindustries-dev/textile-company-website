@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import SectionHeading from "./ui/SectionHeading";
 import { CATEGORIES, PRODUCTS } from "../data/constants";
 
@@ -67,9 +68,12 @@ export default function Products() {
                       </span>
                     ))}
                   </div>
-                  <button className="w-full flex items-center justify-center gap-2 bg-onyx hover:bg-mustard text-canvas hover:text-onyx py-3 rounded-lg text-sm font-semibold transition-colors">
-                    Inquire Fabric Spec <ArrowRight className="w-4 h-4" />
-                  </button>
+                  <Link
+                    to="/contact"
+                    className="w-full flex items-center justify-center gap-2 bg-onyx hover:bg-mustard text-canvas hover:text-onyx py-3 rounded-lg text-sm font-semibold transition-colors"
+                  >
+                    Get More Info <ArrowRight className="w-4 h-4" />
+                  </Link>
                 </div>
               </motion.div>
             ))}

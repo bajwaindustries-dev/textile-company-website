@@ -1,11 +1,69 @@
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, Play, ArrowUpRight } from "lucide-react";
+import { useState, useRef, useEffect } from "react";
+import { motion, AnimatePresence, useInView } from "framer-motion";
+import { ArrowRight, Play, ArrowUpRight, Factory, Shirt } from "lucide-react";
 import { Link } from "react-router-dom";
 import RFQForm from "./RFQForm";
 import CapabilityAccordion from "./CapabilityAccordion";
 import SectionHeading from "./ui/SectionHeading";
 import { CATEGORIES, PRODUCTS } from "../data/constants";
+
+/* ---------------------------------------------------------------------------
+   ABOUT INFO CARDS — count-up stat cards that animate once scrolled into view
+   --------------------------------------------------------------------------- */
+const INFO_CARDS = [
+  {
+    icon: Factory,
+    prefix: "Upto ",
+    value: 200,
+    suffix: " Ton",
+    label: "Dyeing Fabric Capacity Per Month",
+  },
+  {
+    icon: Shirt,
+    prefix: "",
+    value: 100,
+    suffix: "K+",
+    label: "Garments pieces per month production",
+  },
+];
+
+function InfoCard({ icon: Icon, prefix, value, suffix, label }) {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: "-80px" });
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    if (!inView) return;
+    let startTimestamp = null;
+    const duration = 1600;
+
+    const step = (timestamp) => {
+      if (!startTimestamp) startTimestamp = timestamp;
+      const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+      setCount(Math.floor(progress * value));
+      if (progress < 1) window.requestAnimationFrame(step);
+    };
+
+    window.requestAnimationFrame(step);
+  }, [inView, value]);
+
+  return (
+    <div
+      ref={ref}
+      className="flex flex-col items-center text-center gap-3 rounded-2xl border border-blue-100 bg-blue-50 p-8 shadow-sm"
+    >
+      <div className="w-14 h-14 rounded-xl bg-onyx flex items-center justify-center shadow-md">
+        <Icon className="w-7 h-7 text-mustard" strokeWidth={1.75} />
+      </div>
+      <div className="font-serif text-3xl md:text-4xl font-bold text-onyx">
+        {prefix}
+        {count}
+        {suffix}
+      </div>
+      <p className="text-sm md:text-base text-stone-600 leading-relaxed max-w-xs">{label}</p>
+    </div>
+  );
+}
 
 const AnimatedSection = ({ children, className = "", delay = 0 }) => (
   <motion.div
@@ -143,15 +201,28 @@ export default function Hero() {
             <span className="text-xs font-bold tracking-widest text-mustard-deep uppercase mb-2 block">
               Who We Are
             </span>
-            <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-onyx mb-6 uppercase tracking-wider">
+            <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-semibold text-onyx mb-6 uppercase tracking-wider">
               Bajwa Industries
             </h2>
             <p className="text-base md:text-lg text-stone-700 max-w-4xl mx-auto leading-relaxed">
-              Established with a commitment to precision and innovation, Bajwa Industries is a premier vertically integrated
-              textile manufacturer. By taking a farm-to-retail approach, we manage every stage of production—from raw fiber
-              selection and fabric engineering to specialized dyeing, finishing, and garment assembly. Our mission is to deliver
-              dependable, high-performance textile solutions for brands and businesses worldwide.
+              Bajwa Industries is a premier vertically-integrated <strong className="font-bold text-onyx">textile manufacturer</strong> delivering
+              end-to-end high-<strong className="font-bold text-onyx">quality</strong> knits for Global Brands — from raw fiber selection to finished
+              garment assembly.
             </p>
+            <p className="text-base md:text-lg text-stone-700 max-w-4xl mx-auto leading-relaxed mt-4">
+              Founded in <strong className="font-bold text-onyx">2005</strong>, our specialty is{" "}
+              <strong className="font-bold text-onyx">Knit Wear Dyeing, Fabric &amp; Garment Manufacturing</strong>, located in{" "}
+              <strong className="font-bold text-onyx">Faisalabad, the Textile Hub of Pakistan</strong>.
+            </p>
+          </AnimatedSection>
+
+          {/* About Info Cards */}
+          <AnimatedSection delay={0.1} className="mt-10 md:mt-12 mb-10 md:mb-14">
+            <div className="grid sm:grid-cols-2 gap-5 md:gap-6 max-w-3xl mx-auto">
+              {INFO_CARDS.map((card) => (
+                <InfoCard key={card.label} {...card} />
+              ))}
+            </div>
           </AnimatedSection>
 
           {/* CTA Navigation Buttons */}

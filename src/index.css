@@ -2,23 +2,25 @@
 
 /* ============================================================================
    BAJWA INDUSTRIES — EDITORIAL DESIGN SYSTEM
-   Canvas (cream) / Onyx (charcoal) / Mustard (gold) high-fashion palette.
-   Typography: Playfair Display (serif — nav/section titles),
-   Bebas Neue (display — hero impact), Inter (body copy).
+   Canvas (white) / Onyx (logo navy) / Mustard (yellow accent) palette.
+   Token names (canvas/onyx/mustard) are kept as-is so every existing
+   bg-onyx / text-mustard / etc. utility across the app repaints automatically.
+   Typography: Libre Franklin (headings — nav/section titles/hero impact),
+   Arial/Helvetica (body copy/buttons).
    ============================================================================ */
 @theme {
-  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-serif: "Playfair Display", Georgia, "Times New Roman", serif;
-  --font-display: "Bebas Neue", "Oswald", sans-serif;
+  --font-sans: Arial, Helvetica, "Helvetica Neue", sans-serif;
+  --font-serif: "Libre Franklin", Arial, Helvetica, sans-serif;
+  --font-display: "Libre Franklin", Arial, Helvetica, sans-serif;
 
-  /* Core brand palette */
+  /* Core brand palette — logo navy + a clean vivid yellow accent */
   --color-canvas: #fafafa;
-  --color-canvas-soft: #f2ede2;
-  --color-onyx: #0d0d0d;
-  --color-onyx-soft: #1a1a1a;
-  --color-mustard: #eab308;
-  --color-mustard-deep: #b45309;
-  --color-mustard-light: #fde68a;
+  --color-canvas-soft: #f2f3f5;
+  --color-onyx: #1e1264;
+  --color-onyx-soft: #2b1c7a;
+  --color-mustard: #ffc300;
+  --color-mustard-deep: #e6a700;
+  --color-mustard-light: #ffe8a3;
 
   /* Radius — crisp editorial corners, not corporate-soft */
   --radius-sm: 2px;
@@ -27,6 +29,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -36,6 +39,8 @@ body {
   text-rendering: optimizeLegibility;
   background-color: var(--color-canvas);
   color: var(--color-onyx);
+  overflow-x: hidden;
+  width: 100%;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -43,7 +48,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 ::selection {
-  background-color: rgba(234, 179, 8, 0.35);
+  background-color: rgba(255, 195, 0, 0.35);
   color: var(--color-onyx);
 }
 
@@ -55,7 +60,7 @@ h1, h2, h3, h4, h5, h6 {
   background: var(--color-canvas);
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(13, 13, 13, 0.2);
+  background: rgba(30, 18, 100, 0.25);
   border: 2px solid var(--color-canvas);
 }
 ::-webkit-scrollbar-thumb:hover {
@@ -64,7 +69,7 @@ h1, h2, h3, h4, h5, h6 {
 
 * {
   scrollbar-width: thin;
-  scrollbar-color: rgba(13, 13, 13, 0.2) var(--color-canvas);
+  scrollbar-color: rgba(30, 18, 100, 0.25) var(--color-canvas);
 }
 
 :focus-visible {

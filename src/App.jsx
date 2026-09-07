@@ -3,7 +3,6 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Capabilities from "./components/Capabilities";
-import FacilityDetail from "./pages/FacilityDetail";
 import Products from "./components/Products";
 import RFQForm from "./components/RFQForm";
 import Footer from "./components/Footer";
@@ -31,11 +30,10 @@ export default function App() {
       <ScrollToTop />
       <Navbar />
 
-      <main className="flex-grow pt-16 lg:pt-20 pb-16 lg:pb-0">
+      <main className="flex-grow pt-16 lg:pt-20">
         <Routes>
           <Route path="/" element={<Hero />} />
           <Route path="/capabilities" element={<Capabilities />} />
-          <Route path="/capabilities/:slug" element={<FacilityDetail />} />
           <Route path="/products" element={<Products />} />
           <Route path="/contact" element={<RFQForm />} />
         </Routes>

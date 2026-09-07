@@ -1,4 +1,4 @@
-import React from "react";
+import { Link } from "react-router-dom";
 import SectionHeading from "./ui/SectionHeading";
 import { CAPABILITIES_DATA } from "../data/constants";
 
@@ -16,15 +16,15 @@ export default function CapabilityAccordion() {
         />
 
         {/* Outer Stack Frame with Enhanced Borders & Heavy Outer Drop-Shadow */}
-        <div className="mt-12 md:mt-16 w-full rounded-2xl md:rounded-3xl overflow-hidden border-2 border-white/15 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.85)] bg-onyx">
-          <div className="flex flex-col md:flex-row w-full h-[550px] md:h-[580px]">
+        <div className="mt-6 md:mt-8 w-full rounded-2xl md:rounded-3xl overflow-hidden border-2 border-white/15 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.85)] bg-onyx">
+          <div className="flex flex-col md:flex-row w-full h-[600px] md:h-[640px]">
             {CAPABILITIES_DATA.map((item, idx) => {
               const Icon = item.icon;
-              const itemNumber = item.id || String(idx + 1).padStart(2, "0");
               const itemDesc = item.description || item.desc;
 
               return (
-                <article
+                <Link
+                  to="/capabilities"
                   key={item.id || item.slug || idx}
                   className={`group relative isolate overflow-hidden flex-1 md:hover:flex-[3.5] md:focus-within:flex-[3.5] transition-[flex] duration-700 ${SMOOTH_EASE} border-b-2 md:border-b-0 md:border-r-2 border-white/20 last:border-none shadow-[inset_0_0_40px_rgba(0,0,0,0.5)] cursor-pointer`}
                 >
@@ -48,13 +48,6 @@ export default function CapabilityAccordion() {
                   {/* Dark Scrim Overlay */}
                   <div className="absolute inset-0 -z-10 bg-gradient-to-t from-black/90 via-black/45 to-black/35 group-hover:from-black/95 group-hover:via-black/55 transition-colors duration-500" />
 
-                  {/* --- ALWAYS VISIBLE TOP-CORNER NUMBER (Small + Heavy Text Shadow) --- */}
-                  <div className="absolute top-4 left-4 md:top-6 md:left-6 z-20 pointer-events-none">
-                    <span className="font-display text-sm md:text-base font-bold text-mustard tracking-widest [text-shadow:_0_2px_10px_rgb(0_0_0_/_95%)]">
-                      {itemNumber}
-                    </span>
-                  </div>
-
                   {/* --- COLLAPSED VERTICAL BADGE (Desktop View) --- */}
                   <div className="absolute bottom-0 left-0 z-20 p-3 md:p-4 group-hover:opacity-0 group-hover:pointer-events-none transition-opacity duration-300 hidden md:block">
                     <div className="bg-black/80 backdrop-blur-md px-3 py-5 rounded-sm border border-white/15 shadow-md flex items-center justify-center">
@@ -76,16 +69,16 @@ export default function CapabilityAccordion() {
                     </div>
 
                     {/* Bottom Title & Description */}
-                    <div className={`transform-gpu translate-y-3 group-hover:translate-y-0 transition-transform duration-500 ${SMOOTH_EASE}`}>
-                      <h3 className="font-serif text-2xl md:text-3xl text-canvas font-medium mb-2 drop-shadow-[0_2px_6px_rgba(0,0,0,0.85)]">
+                    <div className={`transform-gpu translate-y-3 group-hover:translate-y-0 transition-transform duration-500 text-center ${SMOOTH_EASE}`}>
+                      <h3 className="font-serif text-xl md:text-2xl text-canvas font-medium mb-2 drop-shadow-[0_2px_6px_rgba(0,0,0,0.85)]">
                         {item.title}
                       </h3>
-                      <p className="font-sans text-sm md:text-base text-canvas/90 leading-relaxed max-w-lg drop-shadow-[0_1px_4px_rgba(0,0,0,0.85)]">
+                      <p className="hidden md:block font-sans text-xs md:text-sm text-canvas/90 leading-relaxed max-w-lg mx-auto drop-shadow-[0_1px_4px_rgba(0,0,0,0.85)]">
                         {itemDesc}
                       </p>
                     </div>
                   </div>
-                </article>
+                </Link>
               );
             })}
           </div>

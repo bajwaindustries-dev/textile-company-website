@@ -1,25 +1,37 @@
-import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
-import About from "./components/About";
-import Capabilities from "./components/Capabilities";
-import Products from "./components/Products";
-import Sustainability from "./components/Sustainability";
-import GlobalImpact from "./components/GlobalImpact";
-import RFQForm from "./components/RFQForm";
-import Footer from "./components/Footer";
+import js from "@eslint/js";
+import globals from "globals";
+import react from "eslint-plugin-react";
+import reactHooks from "eslint-plugin-react-hooks";
+import reactRefresh from "eslint-plugin-react-refresh";
+import { defineConfig, globalIgnores } from "eslint/config";
 
-export default function App() {
-  return (
-    <div className="font-sans antialiased bg-slate-50 text-slate-900 selection:bg-emerald-500/30">
-      <Navbar />
-      <Hero />
-      <About />
-      <Capabilities />
-      <Products />
-      <Sustainability />
-      <GlobalImpact />
-      <RFQForm />
-      <Footer />
-    </div>
-  );
-}
+export default defineConfig([
+  globalIgnores(["dist"]),
+  {
+    files: ["**/*.{js,jsx}"],
+    extends: [
+      js.configs.recommended,
+      reactHooks.configs["recommended-latest"],
+      reactRefresh.configs.vite,
+    ],
+    plugins: {
+      react,
+    },
+    languageOptions: {
+      ecmaVersion: 2020,
+      globals: globals.browser,
+      parserOptions: {
+        ecmaVersion: "latest",
+        ecmaFeatures: { jsx: true },
+        sourceType: "module",
+      },
+    },
+    rules: {
+      // eslint-scope doesn't mark JSX-only-used identifiers as references in
+      // this ESLint version, so no-unused-vars false-positives on every
+      // component imported and only ever used as a JSX tag. This rule
+      // restores that tracking.
+      "react/jsx-uses-vars": "error",
+    },
+  },
+]);

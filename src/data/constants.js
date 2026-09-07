@@ -9,14 +9,12 @@ import {
   Leaf,
   BadgeCheck,
   Award,
-  Cpu,
 } from "lucide-react";
 
 export const NAV_LINKS = [
   { label: "About", to: "/#about" },
   { label: "Capabilities", to: "/capabilities" },
   { label: "Products", to: "/products" },
-  { label: "Sustainability", to: "/#sustainability" },
   { label: "RFQ", to: "/contact" },
 ];
 
@@ -204,45 +202,42 @@ export const REGIONS = [
 export const CAPABILITIES_DATA = [
   {
     id: "01",
-    title: "Farm-to-Retail",
+    title: "Yarn & Knitting",
     description:
-      "Complete vertical integration controlling yarn sourcing, weaving, dyeing, and garment stitching under one roof.",
-    image:"/capabilities/knit-machine.png",
+      "State-of-the-art circular and flat knitting machines producing premium quality fabric bases at scale.",
+    image: "/capabilities/knit-machine.png",
     fallback: "/capabilities/farm-to-retail.jpg",
-    href: "/capabilities",
+    href: "/capabilities/yarn-knitting",
     icon: Factory,
   },
   {
     id: "02",
-    title: "Uncompromising Quality",
+    title: "Dyeing",
     description:
-      "Rigorous quality control processes ensuring top-tier fabrics, color consistency, and long-lasting garments.",
-    image:
-      "/capabilities/quality.png",
+      "Eco-friendly wet processing with Pantone-precision custom color matching for every order.",
+    image: "/capabilities/sustainibility.png",
+    fallback: "/capabilities/sustainability.jpg",
+    href: "/capabilities/dyeing-finishing",
+    icon: Droplets,
+  },
+  {
+    id: "03",
+    title: "Quality Control and Finishing",
+    description:
+      "AQL 1.5 inspection standards paired with custom, retailer-ready packaging solutions.",
+    image: "/capabilities/quality.png",
     fallback: "/capabilities/quality.jpg",
     href: "/capabilities/quality-packaging",
     icon: ShieldCheck,
   },
   {
-    id: "03",
-    title: "Advanced Technology",
-    description:
-      "Modern machinery and automated knitwear processes tailored for high-volume global market demands.",
-    image:
-      "/capabilities/machines.png",
-    fallback: "/capabilities/technology.jpg",
-    href: "/capabilities/yarn-knitting",
-    icon: Cpu,
-  },
-  {
     id: "04",
-    title: "Sustainable Practices",
+    title: "Cutting & Sewing",
     description:
-      "Eco-friendly dyeing, water reduction systems, and responsible textile manufacturing for a greener future.",
-    image:
-      "/capabilities/sustainibility.png",
-    fallback: "/capabilities/sustainability.jpg",
-    href: "/capabilities/dyeing-finishing",
-    icon: Leaf,
+      "Automated cutting tables and lean garment assembly lines engineered for consistent output.",
+    image: "/capabilities/machines.png",
+    fallback: "/capabilities/technology.jpg",
+    href: "/capabilities/cutting-sewing",
+    icon: Scissors,
   },
 ];
