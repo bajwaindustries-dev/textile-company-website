@@ -1,8 +1,4 @@
 import {
-  Factory,
-  Droplets,
-  Scissors,
-  PackageCheck,
   Sun,
   Recycle,
   ShieldCheck,
@@ -10,6 +6,12 @@ import {
   BadgeCheck,
   Award,
 } from "lucide-react";
+import {
+  YarnSpoolIcon,
+  DyeDropIcon,
+  FinishingIcon,
+  ShearsIcon,
+} from "../components/icons/BrandIcons";
 
 export const NAV_LINKS = [
   { label: "About", to: "/#about" },
@@ -31,7 +33,7 @@ export const METRICS = [
 export const STEPS = [
   {
     slug: "yarn-knitting",
-    icon: Factory,
+    icon: YarnSpoolIcon,
     title: "Yarn & Knitting",
     desc: "State-of-the-art circular and flat knitting machines producing premium quality fabric bases at scale.",
     details: [
@@ -39,41 +41,56 @@ export const STEPS = [
       "Flat knitting for collars & cuffs",
       "In-house yarn quality testing lab",
     ],
+    gallery: [
+      "/capabilities/knit-machine.png",
+      "https://images.unsplash.com/photo-1675176785803-bffbbb0cd2f4?auto=format&fit=crop&w=1200&q=80",
+    ],
   },
   {
-    slug: "dyeing-finishing",
-    icon: Droplets,
-    title: "Dyeing & Finishing",
+    slug: "dyeing",
+    icon: DyeDropIcon,
+    title: "Dyeing",
     desc: "Eco-friendly wet processing with Pantone-precision custom color matching for every order.",
     details: [
       "Low-water, eco-friendly dyeing processes",
       "Pantone-precision custom color matching with data-color equipment",
-      "Bio-polishing with Enzyme for clean fabric surface",
+      "Automated Lab following ISO standards",
       "22 Imported FONG's machinery units",
+    ],
+    gallery: [
+      "/capabilities/sustainibility.png",
+      "https://images.unsplash.com/photo-1517146783983-418c681b56c5?auto=format&fit=crop&w=1200&q=80",
+    ],
+  },
+  {
+    slug: "finishing",
+    icon: FinishingIcon,
+    title: "Finishing",
+    desc: "Precision fabric finishing that locks in shape, softness, and surface quality before cutting.",
+    details: [
+      "Complete open-width and tubular finishing setup",
+      "Compacting & heat-setting for dimensional stability",
+      "Brushing & raising finishes for fleece fabrics",
+    ],
+    gallery: [
+      "/capabilities/quality.png",
+      "https://images.unsplash.com/photo-1610891015188-5369212db097?auto=format&fit=crop&w=1200&q=80",
     ],
   },
   {
     slug: "cutting-sewing",
-    icon: Scissors,
+    icon: ShearsIcon,
     title: "Cutting & Sewing",
-    desc: "Automated cutting tables and lean garment assembly lines engineered for consistent output.",
+    desc: "Precision cutting tables and lean garment assembly lines engineered for consistent output.",
     details: [
-      "Automated fabric spreading & cutting tables",
-      "120+ lean garment assembly lines",
+      "Skilled fabric spreading & precision cutting tables",
+      "100+ stitching machines",
       "In-line quality checkpoints",
-      "Daily capacity: 100,000+ pieces",
+      "100K+ monthly capacity",
     ],
-  },
-  {
-    slug: "quality-packaging",
-    icon: PackageCheck,
-    title: "Quality Control & Packaging",
-    desc: "AQL 1.5 inspection standards paired with custom, retailer-ready packaging solutions.",
-    details: [
-      "AQL 1.5 statistical sampling standards",
-      "4-point fabric inspection system",
-      "Custom retailer-ready poly & carton packaging",
-      "Metal detection & final pre-shipment audit",
+    gallery: [
+      "/capabilities/machines.png",
+      "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&w=1200&q=80",
     ],
   },
 ];
@@ -186,7 +203,7 @@ export const CERTS = [
 ];
 
 export const ECO_METRICS = [
-  { icon: Droplets, value: 65, suffix: "%", label: "Water Recycled Annually" },
+  { icon: DyeDropIcon, value: 65, suffix: "%", label: "Water Recycled Annually" },
   { icon: Sun, value: 40, suffix: "%", label: "Solar Energy Footprint" },
   { icon: Recycle, value: 98, suffix: "%", label: "Zero-Waste Cutting Efficiency" },
 ];
@@ -207,7 +224,7 @@ export const CAPABILITIES_DATA = [
     image: "/capabilities/knit-machine.png",
     fallback: "/capabilities/farm-to-retail.jpg",
     href: "/capabilities/yarn-knitting",
-    icon: Factory,
+    icon: YarnSpoolIcon,
   },
   {
     id: "02",
@@ -216,27 +233,27 @@ export const CAPABILITIES_DATA = [
       "Eco-friendly wet processing with Pantone-precision custom color matching for every order.",
     image: "/capabilities/sustainibility.png",
     fallback: "/capabilities/sustainability.jpg",
-    href: "/capabilities/dyeing-finishing",
-    icon: Droplets,
+    href: "/capabilities/dyeing",
+    icon: DyeDropIcon,
   },
   {
     id: "03",
-    title: "Quality Control and Finishing",
+    title: "Finishing",
     description:
-      "AQL 1.5 inspection standards paired with custom, retailer-ready packaging solutions.",
+      "Precision fabric finishing that locks in shape, softness, and surface quality before cutting.",
     image: "/capabilities/quality.png",
     fallback: "/capabilities/quality.jpg",
-    href: "/capabilities/quality-packaging",
-    icon: ShieldCheck,
+    href: "/capabilities/finishing",
+    icon: FinishingIcon,
   },
   {
     id: "04",
     title: "Cutting & Sewing",
     description:
-      "Automated cutting tables and lean garment assembly lines engineered for consistent output.",
+      "Precision cutting tables and lean garment assembly lines engineered for consistent output.",
     image: "/capabilities/machines.png",
     fallback: "/capabilities/technology.jpg",
     href: "/capabilities/cutting-sewing",
-    icon: Scissors,
+    icon: ShearsIcon,
   },
 ];

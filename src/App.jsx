@@ -3,6 +3,7 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Capabilities from "./components/Capabilities";
+import CapabilityDetail from "./components/CapabilityDetail";
 import Products from "./components/Products";
 import RFQForm from "./components/RFQForm";
 import Footer from "./components/Footer";
@@ -34,6 +35,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Hero />} />
           <Route path="/capabilities" element={<Capabilities />} />
+          <Route path="/capabilities/:slug" element={<CapabilityDetail />} />
           <Route path="/products" element={<Products />} />
           <Route path="/contact" element={<RFQForm />} />
         </Routes>

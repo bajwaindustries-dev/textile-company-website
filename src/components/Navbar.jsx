@@ -29,7 +29,7 @@ export default function Navbar() {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3">
             <img
-              src="/logo/bajwa_industry_logo.jpeg"
+              src="/logo/bajwa_industry_logo.png"
               alt="Bajwa Industries"
               className="w-10 h-10 object-contain rounded-md flex-shrink-0"
             />
@@ -95,7 +95,7 @@ export default function Navbar() {
             onClick={() => setIsMobileMenuOpen(false)}
           >
             <img
-              src="/logo/bajwa_industry_logo.jpeg"
+              src="/logo/bajwa_industry_logo.png"
               alt="Bajwa Industries"
               className="w-8 h-8 object-contain rounded-md flex-shrink-0"
             />

@@ -1,10 +1,11 @@
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
-import { ArrowRight, Play, ArrowUpRight, Factory, Shirt } from "lucide-react";
+import { ArrowRight, Play, ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import RFQForm from "./RFQForm";
 import CapabilityAccordion from "./CapabilityAccordion";
 import SectionHeading from "./ui/SectionHeading";
+import { DyeDropIcon, HoodieIcon } from "./icons/BrandIcons";
 import { CATEGORIES, PRODUCTS } from "../data/constants";
 
 /* ---------------------------------------------------------------------------
@@ -12,14 +13,14 @@ import { CATEGORIES, PRODUCTS } from "../data/constants";
    --------------------------------------------------------------------------- */
 const INFO_CARDS = [
   {
-    icon: Factory,
+    icon: DyeDropIcon,
     prefix: "Upto ",
     value: 200,
     suffix: " Ton",
     label: "Dyeing Fabric Capacity Per Month",
   },
   {
-    icon: Shirt,
+    icon: HoodieIcon,
     prefix: "",
     value: 100,
     suffix: "K+",

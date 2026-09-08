@@ -1,20 +1,21 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { CheckCircle2 } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import { StitchCheckIcon } from "./icons/BrandIcons";
 import SectionHeading from "./ui/SectionHeading";
 import { STEPS } from "../data/constants";
 
-/* High-resolution industrial dummy photos */
+/* High-resolution industrial dummy photos, in the same order as STEPS */
 const DUMMY_IMAGES = [
   "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1000&q=80", // Yarn & Knitting
-  "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1000&q=80", // Dyeing & Finishing
+  "https://images.unsplash.com/photo-1517146783983-418c681b56c5?auto=format&fit=crop&w=1000&q=80", // Dyeing
+  "https://images.unsplash.com/photo-1610891015188-5369212db097?auto=format&fit=crop&w=1000&q=80", // Finishing
   "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&w=1000&q=80", // Cutting & Sewing
-  "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1000&q=80", // Quality Control
 ];
 
 export default function Capabilities() {
   const [active, setActive] = useState(0);
-  const ActiveIcon = STEPS[active]?.icon;
 
   return (
     <section id="capabilities" className="py-12 md:py-16 bg-canvas">
@@ -30,7 +31,6 @@ export default function Capabilities() {
         {/* ========================================== */}
         <div className="flex flex-col gap-4 mt-8 lg:hidden">
           {STEPS.map((s, i) => {
-            const StepIcon = s.icon;
             const cardImg = s.image || s.bgImage || DUMMY_IMAGES[i % DUMMY_IMAGES.length];
 
             return (
@@ -48,18 +48,13 @@ export default function Capabilities() {
                 <div className="absolute inset-0 -z-10 bg-gradient-to-b from-black/90 via-black/80 to-black/95 pointer-events-none" />
 
                 <div>
-                  <div className="flex items-center gap-3.5 mb-3">
-                    <div className="w-10 h-10 rounded-lg bg-mustard text-onyx flex items-center justify-center shrink-0 shadow-md">
-                      <StepIcon className="w-5 h-5 text-onyx" />
+                  <div className="mb-3">
+                    <div className="text-[11px] font-bold text-mustard tracking-widest uppercase">
+                      DEPARTMENT {String(i + 1).padStart(2, "0")}
                     </div>
-                    <div>
-                      <div className="text-[11px] font-bold text-mustard tracking-widest uppercase">
-                        DEPARTMENT {String(i + 1).padStart(2, "0")}
-                      </div>
-                      <h3 className="font-serif text-lg font-bold text-canvas">
-                        {s.title}
-                      </h3>
-                    </div>
+                    <h3 className="font-serif text-lg font-bold text-canvas">
+                      {s.title}
+                    </h3>
                   </div>
 
                   <p className="text-canvas/80 text-xs sm:text-sm mb-4 leading-relaxed">
@@ -69,11 +64,18 @@ export default function Capabilities() {
                   <ul className="grid sm:grid-cols-2 gap-x-4 gap-y-2 pt-3 border-t border-white/10 mb-4">
                     {s.details?.map((d) => (
                       <li key={d} className="flex items-start gap-2 text-xs text-canvas/90">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-mustard shrink-0 mt-0.5" />
+                        <StitchCheckIcon className="w-3.5 h-3.5 text-mustard shrink-0 mt-0.5" />
                         <span>{d}</span>
                       </li>
                     ))}
                   </ul>
+
+                  <Link
+                    to={`/capabilities/${s.slug}`}
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-mustard uppercase tracking-wider hover:text-mustard-light transition-colors"
+                  >
+                    View More <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
                 </div>
               </div>
             );
@@ -87,7 +89,6 @@ export default function Capabilities() {
           {/* LEFT SELECTION BOXES (Compact Tighter Gap) */}
           <div className="lg:col-span-5 flex flex-col gap-2.5 justify-between">
             {STEPS.map((s, i) => {
-              const StepIcon = s.icon;
               const isActive = active === i;
               const tabImg = s.image || s.bgImage || DUMMY_IMAGES[i % DUMMY_IMAGES.length];
 
@@ -121,29 +122,16 @@ export default function Capabilities() {
                     }`}
                   />
 
-                  <div className="flex items-center gap-3.5">
-                    {/* Compact Icon Badge */}
+                  <div>
                     <div
-                      className={`w-10 h-10 rounded-lg flex items-center justify-center shrink-0 transition-all duration-300 shadow-md ${
-                        isActive
-                          ? "bg-mustard text-onyx scale-105"
-                          : "bg-black/50 backdrop-blur-md text-canvas border border-white/15 group-hover:border-mustard/40"
+                      className={`text-[11px] font-bold tracking-widest uppercase mb-0.5 transition-colors ${
+                        isActive ? "text-mustard" : "text-mustard/80"
                       }`}
                     >
-                      <StepIcon className="w-5 h-5" />
+                      DEPARTMENT {String(i + 1).padStart(2, "0")}
                     </div>
-
-                    <div>
-                      <div
-                        className={`text-[11px] font-bold tracking-widest uppercase mb-0.5 transition-colors ${
-                          isActive ? "text-mustard" : "text-mustard/80"
-                        }`}
-                      >
-                        DEPARTMENT {String(i + 1).padStart(2, "0")}
-                      </div>
-                      <div className="font-serif font-bold text-base md:text-lg text-canvas drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
-                        {s.title}
-                      </div>
+                    <div className="font-serif font-bold text-base md:text-lg text-canvas drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+                      {s.title}
                     </div>
                   </div>
                 </button>
@@ -177,11 +165,6 @@ export default function Capabilities() {
                 <div className="absolute inset-0 -z-10 bg-gradient-to-tr from-black/95 via-black/85 to-black/60 pointer-events-none" />
 
                 <div>
-                  {/* Compact Header Icon */}
-                  <div className="w-12 h-12 rounded-xl bg-mustard text-onyx flex items-center justify-center mb-4 shadow-lg border border-white/20">
-                    {ActiveIcon && <ActiveIcon className="w-6 h-6 text-onyx" />}
-                  </div>
-
                   <h3 className="font-serif text-2xl md:text-3xl text-canvas font-medium mb-2 drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)]">
                     {STEPS[active]?.title}
                   </h3>
@@ -194,11 +177,18 @@ export default function Capabilities() {
                   <ul className="grid sm:grid-cols-2 gap-x-6 gap-y-2.5 mb-5 pt-4 border-t border-white/15">
                     {STEPS[active]?.details?.map((d) => (
                       <li key={d} className="flex items-start gap-2.5 text-xs md:text-sm text-canvas/90">
-                        <CheckCircle2 className="w-4 h-4 text-mustard shrink-0 mt-0.5" />
+                        <StitchCheckIcon className="w-4 h-4 text-mustard shrink-0 mt-0.5" />
                         <span className="drop-shadow-[0_1px_3px_rgba(0,0,0,0.9)]">{d}</span>
                       </li>
                     ))}
                   </ul>
+
+                  <Link
+                    to={`/capabilities/${STEPS[active]?.slug}`}
+                    className="inline-flex items-center gap-2 text-xs font-bold text-mustard uppercase tracking-wider hover:text-mustard-light transition-colors"
+                  >
+                    View More <ArrowRight className="w-4 h-4" />
+                  </Link>
                 </div>
               </motion.div>
             </AnimatePresence>
