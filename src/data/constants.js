@@ -68,7 +68,7 @@ export const STEPS = [
     slug: "finishing",
     icon: FinishingIcon,
     title: "Finishing",
-    image: "/capabilities/finishing/finishing-stenter.jpeg",
+    image: "/capabilities/finishing/finishing-stenter-02.jpeg",
     desc: "Precision fabric finishing that locks in shape, softness, and surface quality before cutting.",
     details: [
       "Complete open-width and tubular finishing setup",
@@ -291,7 +291,7 @@ export const CAPABILITIES_DATA = [
     title: "Finishing",
     description:
       "Precision fabric finishing that locks in shape, softness, and surface quality before cutting.",
-    image: "/capabilities/finishing/finishing-stenter.jpeg",
+    image: "/capabilities/finishing/finishing-stenter-02.jpeg",
     href: "/capabilities/finishing",
     icon: FinishingIcon,
   },
