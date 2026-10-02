@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import RFQForm from "./RFQForm";
 import CapabilityAccordion from "./CapabilityAccordion";
 import SectionHeading from "./ui/SectionHeading";
+import FittedImage from "./ui/FittedImage";
 import { DyeDropIcon, HoodieIcon } from "./icons/BrandIcons";
 import { CATEGORIES, PRODUCTS } from "../data/constants";
 
@@ -96,10 +97,22 @@ const CARD_SIZE =
 const KNIT_TEXTURE =
   "repeating-linear-gradient(45deg, rgba(255,255,255,0.08) 0px, rgba(255,255,255,0.08) 2px, transparent 2px, transparent 10px)";
 
-function ProductCardVisual({ product }) {
+/* Only fabric swatches carry spec tags; garment cards are image + name */
+function ProductCardVisual({ product, isFabric }) {
   return (
     <div className={`relative w-full h-full bg-gradient-to-br ${product.color}`}>
-      <div className="absolute inset-0" style={{ backgroundImage: KNIT_TEXTURE }} />
+      {product.image ? (
+        <FittedImage
+          src={product.image}
+          alt={isFabric ? `${product.name} fabric` : product.name}
+          background={product.imageBg}
+          fill={isFabric ? product.imageFill : !product.imageContain}
+          zoom={isFabric ? undefined : 1}
+          fillPosition={isFabric ? undefined : "center top"}
+        />
+      ) : (
+        <div className="absolute inset-0" style={{ backgroundImage: KNIT_TEXTURE }} />
+      )}
       <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent" />
       <div className="absolute bottom-0 left-0 right-0 p-3 md:p-4">
         <h3 className="font-serif font-bold text-canvas text-sm md:text-lg leading-snug">
@@ -107,16 +120,18 @@ function ProductCardVisual({ product }) {
         </h3>
 
         {/* Specs hidden on mobile, visible from md+ */}
-        <div className="hidden md:flex flex-wrap gap-1.5 mt-2">
-          {product.specs.slice(0, 2).map((s) => (
-            <span
-              key={s}
-              className="text-[10px] md:text-xs bg-mustard/90 text-onyx px-2 py-0.5 rounded-full font-semibold"
-            >
-              {s}
-            </span>
-          ))}
-        </div>
+        {isFabric && (
+          <div className="hidden md:flex flex-wrap gap-1.5 mt-2">
+            {product.specs.slice(0, 2).map((s) => (
+              <span
+                key={s}
+                className="text-[10px] md:text-xs bg-mustard/90 text-onyx px-2 py-0.5 rounded-full font-semibold"
+              >
+                {s}
+              </span>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );
@@ -124,7 +139,8 @@ function ProductCardVisual({ product }) {
 
 export default function Hero() {
   const [activeCat, setActiveCat] = useState(CATEGORIES[0]);
-  const featuredProducts = PRODUCTS[activeCat] ?? [];
+  // The collage has a fixed number of slots; extra products would stack in the center
+  const featuredProducts = (PRODUCTS[activeCat] ?? []).slice(0, FEATURED_SLOTS.length);
 
   const certifications = [
     { name: "Sedex", img: "/certifications/sedex.png" },
@@ -344,7 +360,7 @@ export default function Hero() {
                           whileTap={{ scale: 0.98 }}
                           className="w-full h-full rounded-xl md:rounded-2xl overflow-hidden border border-stone-200/70 shadow-xl shadow-stone-300/40 hover:shadow-2xl hover:shadow-stone-300/60 transition-shadow duration-300 cursor-pointer bg-canvas"
                         >
-                          <ProductCardVisual product={p} />
+                          <ProductCardVisual product={p} isFabric={activeCat === "Custom Fabrics"} />
                         </motion.div>
                       </motion.div>
                     );
@@ -386,6 +402,10 @@ export default function Hero() {
             <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-onyx uppercase tracking-wider">
               Certifications
             </h2>
+            <p className="mt-4 text-sm md:text-base text-stone-600 italic">
+              Certifications of our Production Partner{" "}
+              <strong className="font-bold not-italic text-onyx">Wales Textile</strong>
+            </p>
           </AnimatedSection>
 
           <motion.div

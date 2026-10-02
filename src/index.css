@@ -96,3 +96,25 @@ h1, h2, h3, h4, h5, h6 {
   outline: 2px solid var(--color-mustard);
   outline-offset: 2px;
 }
+
+/* Hide the scrollbar on horizontally scrolling rows (e.g. mobile filter pills).
+   Plain (unlayered) rules on purpose: the global * { scrollbar-width } above is
+   also unlayered, so a Tailwind @utility (which is layered) would lose to it. */
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Gentle sideways bounce used on "there's more this way" scroll arrows */
+@keyframes nudge {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(4px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-\[nudge_1\.6s_ease-in-out_3\] {
+    animation: none;
+  }
+}

@@ -24,7 +24,8 @@ export default function CapabilityAccordion() {
 
               return (
                 <Link
-                  to="/capabilities"
+                  to={item.href || "/capabilities"}
+                  aria-label={`${item.title} — view department`}
                   key={item.id || item.slug || idx}
                   className={`group relative isolate overflow-hidden flex-1 md:hover:flex-[3.5] md:focus-within:flex-[3.5] transition-[flex] duration-700 ${SMOOTH_EASE} border-b-2 md:border-b-0 md:border-r-2 border-white/20 last:border-none shadow-[inset_0_0_40px_rgba(0,0,0,0.5)] cursor-pointer`}
                 >

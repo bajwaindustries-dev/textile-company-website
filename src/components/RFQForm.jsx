@@ -16,9 +16,15 @@ export default function RFQForm() {
             <Mail className="w-4 h-4 text-mustard-deep shrink-0" /> bajwaindustryfsd@gmail.com
           </div>
           <div className="flex items-center gap-2">
-            <Phone className="w-4 h-4 text-mustard-deep shrink-0" /> +92 321 1137545
+            <Phone className="w-4 h-4 text-mustard-deep shrink-0" />
+            {/* Inline with a divider on mobile; stacked on wider screens where the row is tight */}
+            <span className="flex items-center gap-x-2 sm:flex-col sm:items-start whitespace-nowrap">
+              <a href="tel:+923211137545" className="hover:text-onyx transition-colors">+92 321 1137545</a>
+              <span className="text-stone-300 sm:hidden" aria-hidden="true">|</span>
+              <a href="tel:+923009211446" className="hover:text-onyx transition-colors">+92 300 9211446</a>
+            </span>
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 whitespace-nowrap">
             <MapPin className="w-4 h-4 text-mustard-deep shrink-0" /> Faisalabad, Pakistan
           </div>
         </div>
