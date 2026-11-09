@@ -1,12 +1,13 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import SectionHeading from "./ui/SectionHeading";
 import FittedImage from "./ui/FittedImage";
 import { CATEGORIES, PRODUCTS } from "../data/constants";
 
-/* Tab order for the Products page; it opens on Custom Fabrics.
+/* Tab order for the Products page; it opens on Custom Fabrics unless the
+   homepage passed a category in the link state.
    Any category not listed here is appended in its CATEGORIES order. */
 const FABRIC_CATEGORY = "Custom Fabrics";
 const DEFAULT_CATEGORY = FABRIC_CATEGORY;
@@ -109,7 +110,11 @@ function MobileCategoryPicker({ activeTab, setActiveTab }) {
 }
 
 export default function Products() {
-  const [activeTab, setActiveTab] = useState(DEFAULT_CATEGORY);
+  // Open on the category picked on the homepage, if one was passed along
+  const { state } = useLocation();
+  const [activeTab, setActiveTab] = useState(
+    PAGE_CATEGORIES.includes(state?.category) ? state.category : DEFAULT_CATEGORY
+  );
   // Fabric cards keep their spec tags + full button; garment cards are image + text link
   const isFabricTab = activeTab === FABRIC_CATEGORY;
 

@@ -377,7 +377,7 @@ export default function Hero() {
               transition={{ delay: 0.5, duration: 0.5, ease: "easeOut" }}
               className="absolute bottom-2 right-2 sm:bottom-4 sm:right-4 z-9"
             >
-              <Link to="/products">
+              <Link to="/products" state={{ category: activeCat }}>
                 <motion.span
                   whileHover={{ scale: 1.06 }}
                   whileTap={{ scale: 0.95 }}
