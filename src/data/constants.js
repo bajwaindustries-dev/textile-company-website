@@ -95,7 +95,6 @@ export const STEPS = [
       "100K+ monthly capacity",
     ],
     gallery: [
-      "/capabilities/machines.png",
       "/capabilities/stitching.jpeg",
     ],
   },
