@@ -286,7 +286,7 @@ export default function Hero() {
           <SectionHeading
             tag="Featured Collection"
             title="Signature Knitwear, Built In-House"
-            subtitle="A curated look at our most-requested categories — from performance activewear to premium fleece, manufactured end-to-end under one roof."
+            subtitle="A curated look at our most-requested categories — from premium fleece and casual wear to custom fabrics, manufactured end-to-end under one roof."
           />
 
           {/* Category Tabs */}

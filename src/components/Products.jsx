@@ -120,7 +120,7 @@ export default function Products() {
           compact
           tag="Product Range"
           title="Knitwear Categories Built For Every Brand"
-          subtitle="From performance activewear to premium basics — explore our production categories and request fabric specifications instantly."
+          subtitle="From custom fabrics to premium fleece and casual wear — explore our production categories and request fabric specifications instantly."
         />
 
         <div className="md:hidden mt-5 mb-6">
