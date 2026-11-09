@@ -59,6 +59,8 @@ export default function CapabilityDetail() {
   const prev = STEPS[(index - 1 + STEPS.length) % STEPS.length];
   const next = STEPS[(index + 1) % STEPS.length];
   const gallery = department.gallery || [];
+  const bannerGallery = department.bannerGallery || gallery;
+  const sideGallery = department.sideGallery || gallery;
   const deptNumber = String(index + 1).padStart(2, "0");
 
   const whatsappHref = `https://wa.me/923211137545?text=${encodeURIComponent(
@@ -82,7 +84,7 @@ export default function CapabilityDetail() {
       <section className="relative isolate overflow-hidden bg-onyx">
         <div className="relative h-[46vh] min-h-[340px] md:h-[54vh]">
           <Slideshow
-            images={gallery}
+            images={bannerGallery}
             alt={department.title}
             className="absolute inset-0 h-full w-full object-cover"
           />
@@ -130,7 +132,7 @@ export default function CapabilityDetail() {
           >
             <div className="relative rounded-xl overflow-hidden border border-stone-200 shadow-sm aspect-[4/5]">
               <Slideshow
-                images={gallery}
+                images={sideGallery}
                 offset={1}
                 alt={`${department.title} — facility detail`}
                 className="absolute inset-0 w-full h-full object-cover"

@@ -42,11 +42,8 @@ export const STEPS = [
       "Flat knitting for collars & cuffs",
       "In-house yarn quality testing lab",
     ],
-    gallery: [
-      "/capabilities/knitting/knitting-cover.png",
-      "/capabilities/knitting/knitting-inside.png",
-      "/capabilities/knit-machine.png",
-    ],
+    bannerGallery: ["/capabilities/knitting/knitting-cover.png"],
+    sideGallery: ["/capabilities/knitting/knitting-inside.png"],
   },
   {
     slug: "dyeing",
@@ -274,7 +271,7 @@ export const CAPABILITIES_DATA = [
     title: "Yarn & Knitting",
     description:
       "State-of-the-art circular and flat knitting machines producing premium quality fabric bases at scale.",
-    image: "/capabilities/knitting/knitting-cover.png",
+    image: "/capabilities/knitting/knitting-inside.png",
     fallback: "/capabilities/farm-to-retail.jpg",
     href: "/capabilities/yarn-knitting",
     icon: YarnSpoolIcon,
