@@ -22,6 +22,13 @@ const SOCIAL_LINKS = [
   },
 ];
 
+const ADDRESS =
+  "Millat Industrial Estate, Millat Road, Saim Road, Near Ismail Green Colony, Faisalabad, Pakistan";
+const MAPS_QUERY = encodeURIComponent("Millat Industrial Estate, Millat Road, Faisalabad, Pakistan");
+// Keyless Google Maps embed; the link opens the same place in Google Maps
+const MAPS_EMBED = `https://maps.google.com/maps?q=${MAPS_QUERY}&z=15&output=embed`;
+const MAPS_LINK = `https://www.google.com/maps/search/?api=1&query=${MAPS_QUERY}`;
+
 export default function Footer() {
   return (
     <footer className="bg-onyx text-stone-400 pt-20 pb-8">
@@ -73,10 +80,26 @@ export default function Footer() {
         <div>
           <h4 className="font-serif text-canvas font-semibold mb-4">Our Location</h4>
           <div className="space-y-4 text-sm">
-            <div className="flex gap-3">
+            <a
+              href={MAPS_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex gap-3 hover:text-mustard transition-colors"
+            >
               <MapPin className="w-5 h-5 text-mustard shrink-0" />
-              <span>Millat Industrial Estate, Millat Road, Saim Road, Near Ismail Green Colony, Faisalabad, Pakistan</span>
-            </div>
+              <span>{ADDRESS}</span>
+            </a>
+          </div>
+          <div className="mt-5 overflow-hidden rounded-lg border border-canvas/10">
+            <iframe
+              title="Bajwa Industries location on Google Maps"
+              src={MAPS_EMBED}
+              className="block w-full h-48"
+              style={{ border: 0 }}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              allowFullScreen
+            />
           </div>
           <div className="mt-6">
             <h5 className="text-canvas text-sm font-semibold mb-2">Export Regions</h5>
