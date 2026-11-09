@@ -85,6 +85,7 @@ export const STEPS = [
     slug: "cutting-sewing",
     icon: ShearsIcon,
     title: "Cutting & Sewing",
+    image: "/capabilities/stitching.jpeg",
     desc: "Precision cutting tables and lean garment assembly lines engineered for consistent output.",
     details: [
       "Skilled fabric spreading & precision cutting tables",
@@ -94,7 +95,7 @@ export const STEPS = [
     ],
     gallery: [
       "/capabilities/machines.png",
-      "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&w=1200&q=80",
+      "/capabilities/stitching.jpeg",
     ],
   },
 ];
