@@ -24,9 +24,10 @@ const SOCIAL_LINKS = [
 
 const ADDRESS =
   "Millat Industrial Estate, Millat Road, Saim Road, Near Ismail Green Colony, Faisalabad, Pakistan";
-const MAPS_QUERY = encodeURIComponent("Millat Industrial Estate, Millat Road, Faisalabad, Pakistan");
+// Factory pin: Plus Code F4W7+GGP, Faisalabad
+const MAPS_QUERY = "31.496337,73.113828";
 // Keyless Google Maps embed; the link opens the same place in Google Maps
-const MAPS_EMBED = `https://maps.google.com/maps?q=${MAPS_QUERY}&z=15&output=embed`;
+const MAPS_EMBED = `https://maps.google.com/maps?q=${MAPS_QUERY}&z=16&output=embed`;
 const MAPS_LINK = `https://www.google.com/maps/search/?api=1&query=${MAPS_QUERY}`;
 
 export default function Footer() {
