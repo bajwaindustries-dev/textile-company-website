@@ -22,7 +22,7 @@ export default function Careers() {
             href="tel:+923107471706"
             className="flex items-center gap-2 whitespace-nowrap hover:text-onyx transition-colors"
           >
-            <Phone className="w-4 h-4 text-mustard-deep shrink-0" /> 0310 7471706
+            <Phone className="w-4 h-4 text-mustard-deep shrink-0" /> +92 310 7471706
           </a>
           <div className="flex items-center gap-2 whitespace-nowrap">
             <MapPin className="w-4 h-4 text-mustard-deep shrink-0" /> Faisalabad, Pakistan
