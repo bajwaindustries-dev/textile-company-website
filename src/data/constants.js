@@ -35,6 +35,7 @@ export const STEPS = [
     slug: "yarn-knitting",
     icon: YarnSpoolIcon,
     title: "Yarn & Knitting",
+    image: "/capabilities/knitting/knitting-cover.png",
     desc: "State-of-the-art circular and flat knitting machines producing premium quality fabric bases at scale.",
     details: [
       "Circular knitting machines",
@@ -42,8 +43,9 @@ export const STEPS = [
       "In-house yarn quality testing lab",
     ],
     gallery: [
+      "/capabilities/knitting/knitting-cover.png",
+      "/capabilities/knitting/knitting-inside.png",
       "/capabilities/knit-machine.png",
-      "https://images.unsplash.com/photo-1675176785803-bffbbb0cd2f4?auto=format&fit=crop&w=1200&q=80",
     ],
   },
   {
@@ -272,7 +274,7 @@ export const CAPABILITIES_DATA = [
     title: "Yarn & Knitting",
     description:
       "State-of-the-art circular and flat knitting machines producing premium quality fabric bases at scale.",
-    image: "/capabilities/knit-machine.png",
+    image: "/capabilities/knitting/knitting-cover.png",
     fallback: "/capabilities/farm-to-retail.jpg",
     href: "/capabilities/yarn-knitting",
     icon: YarnSpoolIcon,
