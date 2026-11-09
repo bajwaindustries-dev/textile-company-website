@@ -101,41 +101,11 @@ export const STEPS = [
 ];
 
 export const CATEGORIES = [
-  "Activewear & Performance",
   "Casual & Fleece Wear",
   "Custom Fabrics",
 ];
 
 export const PRODUCTS = {
-  "Activewear & Performance": [
-    {
-      name: "Men's Tracksuit — Black",
-      image: "/products/active-wear/men-tracksuit-black.webp",
-      specs: [],
-      color: "from-black to-stone-800",
-    },
-    {
-      name: "Men's Tracksuit — Grey",
-      image: "/products/active-wear/men-tracksuit-grey.webp",
-      specs: [],
-      color: "from-stone-800 to-black",
-    },
-    {
-      name: "Panelled Tracksuit",
-      image: "/products/active-wear/panelled-tracksuit.webp",
-      specs: [],
-      color: "from-amber-950 to-stone-900",
-    },
-    {
-      name: "Varsity Jacket",
-      image: "/products/active-wear/varsity-jacket.webp",
-      // Square shot on white: show the whole jacket instead of cropping the sleeves
-      imageContain: true,
-      imageBg: "#ffffff",
-      specs: [],
-      color: "from-stone-900 to-amber-950",
-    },
-  ],
   "Casual & Fleece Wear": [
     {
       name: "Hoodie & Trouser Set",
@@ -184,6 +154,33 @@ export const PRODUCTS = {
       image: "/products/casual-and-fleece-wear/sweatshirt-and-joggers.webp",
       specs: [],
       color: "from-black to-amber-950",
+    },
+    {
+      name: "Men's Tracksuit — Black",
+      image: "/products/active-wear/men-tracksuit-black.webp",
+      specs: [],
+      color: "from-black to-stone-800",
+    },
+    {
+      name: "Men's Tracksuit — Grey",
+      image: "/products/active-wear/men-tracksuit-grey.webp",
+      specs: [],
+      color: "from-stone-800 to-black",
+    },
+    {
+      name: "Panelled Tracksuit",
+      image: "/products/active-wear/panelled-tracksuit.webp",
+      specs: [],
+      color: "from-amber-950 to-stone-900",
+    },
+    {
+      name: "Varsity Jacket",
+      image: "/products/active-wear/varsity-jacket.webp",
+      // Square shot on white: show the whole jacket instead of cropping the sleeves
+      imageContain: true,
+      imageBg: "#ffffff",
+      specs: [],
+      color: "from-stone-900 to-amber-950",
     },
   ],
   "Custom Fabrics": [

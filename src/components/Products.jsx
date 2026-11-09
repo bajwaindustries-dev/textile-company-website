@@ -10,7 +10,7 @@ import { CATEGORIES, PRODUCTS } from "../data/constants";
    Any category not listed here is appended in its CATEGORIES order. */
 const FABRIC_CATEGORY = "Custom Fabrics";
 const DEFAULT_CATEGORY = FABRIC_CATEGORY;
-const PAGE_ORDER = [DEFAULT_CATEGORY, "Casual & Fleece Wear", "Activewear & Performance"];
+const PAGE_ORDER = [DEFAULT_CATEGORY, "Casual & Fleece Wear"];
 const PAGE_CATEGORIES = [
   ...PAGE_ORDER.filter((cat) => CATEGORIES.includes(cat)),
   ...CATEGORIES.filter((cat) => !PAGE_ORDER.includes(cat)),
