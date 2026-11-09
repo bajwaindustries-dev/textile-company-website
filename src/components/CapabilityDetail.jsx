@@ -6,7 +6,7 @@ import { StitchCheckIcon } from "./icons/BrandIcons";
 import ContactPopup from "./ContactPopup";
 import { STEPS } from "../data/constants";
 
-const SLIDE_MS = 5000;
+const SLIDE_MS = 2500;
 
 function Slideshow({ images, alt, className, offset = 0 }) {
   const [tick, setTick] = useState(0);

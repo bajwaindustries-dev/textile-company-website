@@ -269,7 +269,7 @@ export const CAPABILITIES_DATA = [
     title: "Yarn & Knitting",
     description:
       "State-of-the-art circular and flat knitting machines producing premium quality fabric bases at scale.",
-    image: "/capabilities/knitting/knitting-inside.png",
+    image: "/capabilities/knitting/knitting-inside.webp",
     fallback: "/capabilities/farm-to-retail.jpg",
     href: "/capabilities/yarn-knitting",
     icon: YarnSpoolIcon,
@@ -279,7 +279,7 @@ export const CAPABILITIES_DATA = [
     title: "Dyeing",
     description:
       "Eco-friendly wet processing with Pantone-precision custom color matching for every order.",
-    image: "/capabilities/dyeing/high-temperature-dyeing-machine.jpeg",
+    image: "/capabilities/dyeing/high-temperature-dyeing-machine.webp",
     href: "/capabilities/dyeing",
     icon: DyeDropIcon,
   },
@@ -288,7 +288,7 @@ export const CAPABILITIES_DATA = [
     title: "Finishing",
     description:
       "Precision fabric finishing that locks in shape, softness, and surface quality before cutting.",
-    image: "/capabilities/finishing/finishing-stenter-02.jpeg",
+    image: "/capabilities/finishing/finishing-stenter-02.webp",
     href: "/capabilities/finishing",
     icon: FinishingIcon,
   },
@@ -297,7 +297,7 @@ export const CAPABILITIES_DATA = [
     title: "Cutting & Sewing",
     description:
       "Precision cutting tables and lean garment assembly lines engineered for consistent output.",
-    image: "/capabilities/stitching.jpeg",
+    image: "/capabilities/stitching.webp",
     href: "/capabilities/cutting-sewing",
     icon: ShearsIcon,
   },

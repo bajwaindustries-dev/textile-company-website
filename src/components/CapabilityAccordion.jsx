@@ -34,7 +34,9 @@ export default function CapabilityAccordion() {
                     <img
                       src={item.image}
                       alt={item.title}
-                      loading={idx === 0 ? "eager" : "lazy"}
+                      // All four cards are visible together, so load them all up front
+                      loading="eager"
+                      fetchPriority="high"
                       decoding="async"
                       onError={(e) => {
                         if (item.fallback && !e.currentTarget.dataset.fallback) {
