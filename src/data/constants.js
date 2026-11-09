@@ -300,7 +300,7 @@ export const CAPABILITIES_DATA = [
     title: "Cutting & Sewing",
     description:
       "Precision cutting tables and lean garment assembly lines engineered for consistent output.",
-    image: "/capabilities/machines.png",
+    image: "/capabilities/stitching.jpeg",
     fallback: "/capabilities/technology.jpg",
     href: "/capabilities/cutting-sewing",
     icon: ShearsIcon,
