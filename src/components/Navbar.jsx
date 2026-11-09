@@ -9,6 +9,7 @@ export default function Navbar() {
   const navLinks = [
     { label: "CAPABILITIES", href: "/capabilities" },
     { label: "PRODUCTS", href: "/products" },
+    { label: "CAREERS", href: "/careers" },
     { label: "CONTACT US", href: "/contact" },
   ];
 

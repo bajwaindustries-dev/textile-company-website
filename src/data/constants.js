@@ -17,6 +17,7 @@ export const NAV_LINKS = [
   { label: "About", to: "/#about" },
   { label: "Capabilities", to: "/capabilities" },
   { label: "Products", to: "/products" },
+  { label: "Careers", to: "/careers" },
   { label: "RFQ", to: "/contact" },
 ];
 

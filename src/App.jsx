@@ -6,6 +6,7 @@ import Capabilities from "./components/Capabilities";
 import CapabilityDetail from "./components/CapabilityDetail";
 import Products from "./components/Products";
 import RFQForm from "./components/RFQForm";
+import Careers from "./components/Careers";
 import Footer from "./components/Footer";
 import WhatsAppWidget from "./components/WhatsAppWidget";
 
@@ -38,6 +39,7 @@ export default function App() {
           <Route path="/capabilities/:slug" element={<CapabilityDetail />} />
           <Route path="/products" element={<Products />} />
           <Route path="/contact" element={<RFQForm />} />
+          <Route path="/careers" element={<Careers />} />
         </Routes>
       </main>
 
